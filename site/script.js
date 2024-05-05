@@ -1,5 +1,5 @@
 //const io = require("socket.io-client");
-const socket = io.connect("https://qtr4b-donsimon.amvera.io");//10.209.197.4:8084   192.168.1.3:8084
+const socket = io.connect("https://qtr4b-donsimon.amvera.io");//10.209.197.4:8084   192.168.1.3:8084 
 
 socket.on("connect", () => {
     console.log("Connected!");
