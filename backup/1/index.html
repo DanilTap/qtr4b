@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0">
+    <title>QTR4 FUN</title>
+    <link rel="icon" href="./images/favicon.png" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" href="./style.css">
+    <!--JS-->
+    <script src="https://cdn.socket.io/4.7.3/socket.io.min.js" integrity="sha384-+miq58Ltmjm+SSP5g8Ok6dpMO/6R4n8xe/x1Yj0Bdb9kiEz25LTnWv/GZQTRQamg" crossorigin="anonymous"></script>
+    <script src="jscolor.js"></script>
+</head>
+
+<body>
+    <img id="ping_tester" alt="" hidden="true">
+    <img src="blob:https://web.telegram.org/9ab54c6c-e390-46e5-97cf-ae2aace4c2b3" alt="" style="width: 1260;" hidden="true">
+
+    <div class="right_wrapper">
+        <p class="title">qtr4 chat</p>
+        <p id="users_online">🟢 Online: <strong>0</strong></p>
+
+        <img id="settings_button" src="./images/settings_icon.png" alt="" onclick="settingsClick();">
+        <span id="settings">
+            <center><p class="settings_title">Настройки</p></center>
+            <button id="commands" onclick="commandsClick()">Команды</button>
+            <span id="commands_list" hidden="true"><i>• /clear</i> - очищает чат<br><i>• /cups</i> - меняет регистр<br><i>• /ping</i> - отображает пинг<br></span>
+
+            <center><p class="pers">Профиль</p></center>
+            <p class="nc_title">Цвет ника:</p>
+            <input id="nc" value="##FF7C33" data-jscolor="{format: 'hex'}" >
+        </span>
+    </div>
+
+    <div id="messages">
+        <p></p>
+    </div>
+
+    <div class="message_wrapper">
+        <span class="message_form">
+            <input type="message_input" id="message" autofocus maxlength="1000" placeholder="Сообщение...">
+            <button id="message_send" onclick="MessageSend()">➤</button>
+
+            <!--Stickers-->
+            <img id="stick_button" onclick="stickClick()" src="./images/smiley.png" alt="">
+            <span id="stickers" hidden="true">
+                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title=
+                    <img onclick="stickerSend('dirol')" style="width: 40px; height: 40px; float: left;" src="./images/dirol.gif" alt="" title="dirol">
+                    <img onclick="stickerSend('server')" style="width: 40px; height: 40px; float: left;" src="./images/server.png" alt="" title="server">
+                    <img onclick="stickerSend('legend')" style="width: 40px; height: 40px; float: left;" src="./images/legend.png" alt="" title="nogi">
+                    <img onclick="stickerSend('cosoi')" style="width: 35px; height: 40px; float: left;" src="./images/cosoi.gif" alt="" title="cosoi">
+                    <img onclick="stickerSend('wall')" style="width: 70px; height: 40px; float: left;" src="./images/wall.gif" alt="" title="wall">
+                    <img onclick="stickerSend('car')" style="width: 45px; height: 40px; float: left;" src="./images/car.jpeg" alt="" title="car hule">
+                    <img onclick="stickerSend('thumbs_up')" style="width: 40px; height: 40px; float: left;" src="./images/thumbs_up.gif" alt="" title="thumbs_up">
+                    <img onclick="stickerSend('hm')" style="width: 50px; height: 40px; float: left;" src="./images/hm.png" alt="" title="hm">
+                    <img onclick="stickerSend('hahaha1')" style="width: 40px; height: 40px; float: left;" src="./images/hahaha1.gif" alt="" title="hahaha1">
+                    <img onclick="stickerSend('hzcheeto')" style="width: 40px; height: 40px; float: left;" src="./images/hzcheeto.jpeg" alt="" title="hzcheeto">
+                    <img onclick="stickerSend('bandit')" style="width: 40px; height: 40px; float: left;" src="./images/bandit.gif" alt="" title="bandit">
+                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
+                    <img onclick="stickerSend('hahaha')" style="width: 40px; height: 40px; float: left;" src="./images/hahaha.png" alt="" title="hahaha">
+                    <img onclick="stickerSend('cho')" style="width: 40px; height: 40px; float: left;" src="./images/cho.png" alt="" title="cho">
+                    <img onclick="stickerSend('smiley')" style="width: 50px; height: 40px; float: left;" src="./images/smiley.png" alt="" title="smiley">
+
+            </span>
+
+            <p class="pUsername">Имя:</p>
+            <input type="username_input" id="username" placeholder="%USERNAME%" maxlength="25">
+        </span>
+
+        <span class="info">
+            <center><p class="info_title">INFORMATION</p></center>
+            <img src="./images/hidden.jpeg" alt="">
+            <center><a class="link" href="https://discord.gg/Rsu8hr6z">https://t.me/qtr4_chat</a></center>
+            <center><p style="color: white; font-family: 'Consolas'; cursor: pointer;" onclick="setTimeout(() => {confirm('✅ Вы пожертвовали 63$ на оплату хостинга, спс.')}, 2000)" title="оплати хостинг сука">Донат</p></center>
+        </span>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
