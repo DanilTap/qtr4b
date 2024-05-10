@@ -1,0 +1,59 @@
+<strong>Server:</strong> Чат был успешно очищен!<br>
+<br>
+<strong>Server:</strong> <i>61nOJrlZ7nuFqVb5AACd</i> Вышел из чата<br><br>
+<strong>Server:</strong> <i>TkLXiryNOWBoVA2cAACb</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: CB02D5Kp28zFVDDMAACf<br><br>
+<strong>Server:</strong> <i>CB02D5Kp28zFVDDMAACf</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: PzhgOCObl8F7bBj_AACh<br><br>
+<strong>Server:</strong> <i>PzhgOCObl8F7bBj_AACh</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: NK7PIqpxjzzK1d7hAACj<br><br>
+<strong>Server:</strong> <i>NK7PIqpxjzzK1d7hAACj</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: 9ORRAXckEO60guNJAACl<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: heQPsf_pEuyP3FOOAACn<br><br>
+<strong style="color: #FF7C33;">%USERNAME%</strong>: ку<br>
+<br>
+<strong>Server:</strong> <i>heQPsf_pEuyP3FOOAACn</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: nhY0nMaIzt_o9PaqAACp<br><br>
+<strong>Server:</strong> <i>nhY0nMaIzt_o9PaqAACp</i> Вышел из чата<br><br>
+<strong style="color: #FF7C33;">%USERNAME%</strong>: 1<br>
+<br>
+<strong style="color: #FF7C33;">%USERNAME%</strong>: 1<br>
+<br>
+<strong style="color: #FF7C33;">%USERNAME%</strong>: 1<br>
+<br>
+<strong style="color: #FF7C33;">%USERNAME%</strong>: <br>
+<br>
+<strong>Server:</strong> <i>9ORRAXckEO60guNJAACl</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: FLMRGYCByrZtssJpAACr<br><br>
+<strong style="color: #FF7C33;">%USERNAME%</strong>: 1<br>
+<br>
+<strong>Server:</strong> <i>FLMRGYCByrZtssJpAACr</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: Ha6Bm2Ga1XBTGYlUAAAB<br><br>
+<strong>Server:</strong> <i>Ha6Bm2Ga1XBTGYlUAAAB</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: 3KuI3OttuwGA3h-uAAAX<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: BoV8k2vuo3HT8rKXAAAB<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: fGR7CFkLg82PQU4GAAAO<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: mPMeDrIQ1gE2RVsNAAAr<br><br>
+<strong>Server:</strong> <i>mPMeDrIQ1gE2RVsNAAAr</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: iKFGS6PTtihn87-VAAAt<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: 0hv95rEp4u8CSbcGAAAv<br><br>
+<strong>Server:</strong> <i>0hv95rEp4u8CSbcGAAAv</i> Вышел из чата<br><br>
+<strong>Server:</strong> <i>fGR7CFkLg82PQU4GAAAO</i> Вышел из чата<br><br>
+<strong>Server:</strong> <i>BoV8k2vuo3HT8rKXAAAB</i> Вышел из чата<br><br>
+<strong>Server:</strong> <i>iKFGS6PTtihn87-VAAAt</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: LCLHoWN3ZbMx3n1ZAAAx<br><br>
+<strong style="color: #FF7C33;">%USERNAME%</strong>: 1<br>
+<br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: Z2bnSTPN1C3UX2JAAAAz<br><br>
+<strong>Server:</strong> <i>LCLHoWN3ZbMx3n1ZAAAx</i> Вышел из чата<br><br>
+<strong>Server:</strong> <i>Z2bnSTPN1C3UX2JAAAAz</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: AycWOjyhp3qIpP7mAAA1<br><br>
+<strong>Server:</strong> <i>AycWOjyhp3qIpP7mAAA1</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: j_vEM-kNLZS2sSMRAAAB<br><br>
+<strong>Server:</strong> <i>j_vEM-kNLZS2sSMRAAAB</i> Вышел из чата<br><br>
+<strong>Server:</strong> Подключается новый пользователь <i>%USERNAME%</i> | ID: 9Tl48ObP-UX3P3xPAAAB<br><br>
+<strong style="color: #FF7C33;">Shlomo</strong>: Хуй говна<br>
+<br>
+<strong style="color: #FF7C33;">Shlomo</strong>: Я сьел все какашки из туалетаа ыы<br>
+<br>
+<strong>Server:</strong> <i>9Tl48ObP-UX3P3xPAAAB</i> Вышел из чата<br>
