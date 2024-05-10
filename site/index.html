@@ -16,8 +16,6 @@
 
 <body>
     <img id="ping_tester" alt="" hidden="true">
-    <img src="blob:https://web.telegram.org/9ab54c6c-e390-46e5-97cf-ae2aace4c2b3" alt="" style="width: 1260;" hidden="true">
-
     <div class="right_wrapper">
         <p class="title">qtr4 chat</p>
         <p id="users_online">🟢 Online: <strong>0</strong></p>
@@ -26,7 +24,7 @@
         <span id="settings">
             <center><p class="settings_title">Настройки</p></center>
             <button id="commands" onclick="commandsClick()">Команды</button>
-            <span id="commands_list" hidden="true"><i>• /clear</i> - очищает чат<br><i>• /cups</i> - меняет регистр<br><i>• /ping</i> - отображает пинг<br></span>
+            <span id="commands_list" hidden="true"><i>/clear</i> - очищает чат<br><i>/ping</i> - отображает пинг<br></span>
 
             <center><p class="pers">Профиль</p></center>
             <p class="nc_title">Цвет ника:</p>
@@ -75,7 +73,6 @@
             <center><p style="color: white; font-family: 'Consolas'; cursor: pointer;" onclick="setTimeout(() => {confirm('✅ Вы пожертвовали 63$ на оплату хостинга, спс.')}, 2000)" title="оплати хостинг сука">Донат</p></center>
         </span>
     </div>
-
 
     <script src="script.js"></script>
 </body>

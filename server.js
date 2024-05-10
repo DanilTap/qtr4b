@@ -3,7 +3,6 @@ const createServer = require("http")
 const Server = require("socket.io")
 const fs = require("fs")
 
-
 const app = express()
 const httpServer = createServer.createServer(app)
 const io = new Server.Server(httpServer, {})
@@ -11,32 +10,49 @@ const io = new Server.Server(httpServer, {})
 
 class Chat {
 	static users_count = 0
+	static admin = 'password'
 
-	static write(file, content){
-		fs.readFile(`${file}.txt`, 'utf8', (err, mdata) => {
-			if (err) throw err
+	static write(file, content, username){
+		if (arguments.length == 2){
+			fs.readFile(`${file}.txt`, 'utf8', (err, mdata) => {
+				if (err) throw err
 
-			var contentx = `${mdata}<br>\n` + content + '<br>'
+				var contentx = `${mdata}<p>${content}</p>\n`
 
-			fs.writeFile(
-				`${file}.txt`,
-				contentx,
-				'utf8',
-				(err) => {
+				fs.writeFile(
+					`${file}.txt`,
+					contentx,
+					'utf8',
+					(err) => {
+						if (err) throw err
+					}
+				)
+			})
+
+		} else if (arguments.length > 2){
+			if (content == 'clear'){
+				fs.readFile(`${file}.txt`, 'utf8', (err, mdata) => {
 					if (err) throw err
-				}
-			)
-		})
 
-		var cdata = fs.readFileSync(`${file}.txt`, 'utf8')
-		return cdata
+					var contentx = `<strong>${username}</strong> Очистил чат\n`
+
+					fs.writeFile(
+						`${file}.txt`,
+						contentx,
+						'utf8',
+						(err) => {
+							if (err) throw err
+						}
+					)
+				})
+			}
+		} 
+	}
+
+	static read(file){
+		return fs.readFileSync(`${file}.txt`, 'utf8')
 	}
 }
-
-// var matrix = new Object()
-// var matrix = {
-// 	action_list: []
-// }
 
 app.get('/', function(req, res) {
 	app.use(express.static(__dirname + "/site"))
@@ -44,18 +60,13 @@ app.get('/', function(req, res) {
 })
 
 io.on("connection", (socket) => {
-
 	console.log(`Connected ${socket.id}`)
 	Chat.users_count += 1
 
-	cdata = Chat.write('chat', `<strong>Server:</strong> Подключается <i>%USERNAME%</i> | ID: ${socket.id}`)
+	cdata = Chat.read('chat')
 	socket.emit("load_messages", {messages: cdata})
-	io.emit("update_online", {id: socket.id, users: Chat.users_count, admin_password: "admin69"})
+	io.emit("connected", {users: Chat.users_count})
 
-	// socket.emit("matrix_new", {list: matrix.action_list})
-
-
-	// Send message
 	socket.on("new_message", (data) => {
 		console.log(`${data.username}: ${data.message}`)
 
@@ -63,8 +74,6 @@ io.on("connection", (socket) => {
 		io.emit("new_message", {username: data.username, message: data.message, nc: data.nc})
 	})
 
-
-	// Send sticker
 	socket.on("sticker_send", (data) => {
 		console.log(`${data.username}: ${data.name}`)
 		var msg = ''
@@ -108,8 +117,18 @@ io.on("connection", (socket) => {
 		io.emit("sticker_back", {name: data.author, text: msg, nc: data.nc})
 	})
 
+	socket.on("cmd_clear", (data) => {
+		if (data.password == Chat.admin){
+			Chat.write('chat', 'clear', data.author)
 
-	// Disconnected
+			io.emit("clear_back", {author: data.author})
+		}
+	})
+
+	socket.on("cmd_ping", (data) => {
+		io.emit("ping_back", {author: data.author})
+	})
+
 	socket.on("disconnect", (data) => {
 		console.log(`Disconnected ${socket.id}`)
 		Chat.users_count -= 1
@@ -117,21 +136,6 @@ io.on("connection", (socket) => {
 		Chat.write('chat', `<strong>Server:</strong> <i>${socket.id}</i> Вышел из чата`)
 		io.emit("disconnected", {id: socket.id, users: Chat.users_count})
 	})
-
-
-	// Clear chat
-	socket.on("clear_chat", (data) => {
-		Chat.write('chat', `<strong>${data.author}</strong> Очистил чат`)
-
-		io.emit("clear_back", {author: data.author})
-	})
-
-
-	// MATRIX
-	//socket.on("select_pix", (data) => {
-	//	io.emit("back_select_pixel", {type: data.type, list: data.list, id: data.id})
-	//	matrix.action_list = data.list
-	//})
 })
 
 
