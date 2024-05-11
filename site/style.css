@@ -203,6 +203,35 @@ body {
 	padding: 30px;
 }
 
+#mon {
+	margin-top: 27px;
+    display: block;
+    width: 100%;
+    border-top: 3px solid #323232;
+    height: 250px;
+}
+
+.innermon {
+	display: grid;
+    color: white;
+    font-family: monospace;
+    font-size: 17px;
+    margin-left: 20px;
+}
+
+.innermon span {
+	display: inline-flex;
+    margin-top: -10px;
+}
+
+.innermon p {
+	margin-left: 10px;
+}
+
+.monicons {
+	width: 30px;
+}
+
 .pers {
 	font-family: monospace;
     color: white;

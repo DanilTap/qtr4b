@@ -1,6 +1,8 @@
 const express = require("express")
 const createServer = require("http")
 const Server = require("socket.io")
+const axios = require('axios')
+const cheerio = require("cheerio");
 const fs = require("fs")
 
 const app = express()
@@ -127,6 +129,19 @@ io.on("connection", (socket) => {
 
 	socket.on("cmd_ping", (data) => {
 		io.emit("ping_back", {author: data.author})
+	})
+
+	socket.on("monitoring", (data) => {
+		axios.get('https://tsarvar.com/ru/servers/counter-strike-1.6/195.2.75.58:27015')
+		.then((getResponse) => {
+			const html = getResponse.data
+			const cheerios = cheerio.load(html);
+
+			pcount = cheerios('.srvPage-countCur').text().trim()
+			cmap = cheerios('.srvPage-mapLink').text().trim()
+
+			io.emit("monitoring", {count: pcount, map: cmap})
+		})
 	})
 
 	socket.on("disconnect", (data) => {

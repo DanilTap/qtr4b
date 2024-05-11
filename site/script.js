@@ -2,6 +2,7 @@ const socket = io.connect("localhost:8081") //https://qtr4b-donsimon.amvera.io
 
 socket.on("connect", () => {
 	console.log("Connected")
+	socket.emit("monitoring")
 })
 
 socket.on('connect_error', function(err) {
@@ -70,6 +71,11 @@ socket.on("clear_back", (data) =>{
 	setTimeout(() => clearChat(), 3000)
 })
 
+socket.on("monitoring", (data) => {
+	$('#monplayers').text(`Игроки: ${data.count}/32`)
+	$('#monmap').text(`Карта: ${data.map}`)
+})
+
 
 function MessageSend(){
 	var message = $('#message').val()
@@ -109,6 +115,9 @@ function stickerSend(stick){
 	socket.emit("sticker_send", {author: username, name: stick, nc: nc})
 }
 
+var monitor = setInterval(() => {
+	socket.emit("monitoring")
+}, 5000);
 
 function commandsClick(){
 	if (chatParms.commands_show == false){
