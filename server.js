@@ -11,7 +11,7 @@ const io = new Server.Server(httpServer, {})
 
 
 class Chat {
-	static users_count = 0
+	static userlist = new Map()
 	static admin = 'password'
 
 	static write(file, content, username){
@@ -63,11 +63,11 @@ app.get('/', function(req, res) {
 
 io.on("connection", (socket) => {
 	console.log(`Connected ${socket.id}`)
-	Chat.users_count += 1
-
+	Chat.userlist.set(socket.id, 'Anon')
 	cdata = Chat.read('chat')
+
 	socket.emit("load_messages", {messages: cdata})
-	io.emit("connected", {users: Chat.users_count})
+	io.emit("connected", {users: JSON.stringify(Array.from(Chat.userlist))})
 
 	socket.on("new_message", (data) => {
 		console.log(`${data.username}: ${data.message}`)
@@ -131,6 +131,11 @@ io.on("connection", (socket) => {
 		io.emit("ping_back", {author: data.author})
 	})
 
+	socket.on("nick_change", (data) => {
+		Chat.userlist.set(data.id, data.n)
+		io.emit("nick_back", {users: JSON.stringify(Array.from(Chat.userlist))})
+	})
+
 	socket.on("monitoring", (data) => {
 		axios.get('https://tsarvar.com/ru/servers/counter-strike-1.6/195.2.75.58:27015')
 		.then((getResponse) => {
@@ -146,10 +151,11 @@ io.on("connection", (socket) => {
 
 	socket.on("disconnect", (data) => {
 		console.log(`Disconnected ${socket.id}`)
-		Chat.users_count -= 1
+		n = Chat.userlist.get(socket.id)
+		Chat.userlist.delete(socket.id)
 
-		Chat.write('chat', `<strong>Server:</strong> <i>${socket.id}</i> Вышел из чата`)
-		io.emit("disconnected", {id: socket.id, users: Chat.users_count})
+		Chat.write('chat', `<strong>Server:</strong> <i>${n}</i> Вышел из чата`)
+		io.emit("disconnected", {n: n, users: JSON.stringify(Array.from(Chat.userlist))})
 	})
 })
 

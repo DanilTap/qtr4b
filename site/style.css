@@ -232,6 +232,17 @@ body {
 	width: 30px;
 }
 
+.userslist {
+	display: block;
+	max-height: 150px;
+	font-family: monospace;
+	color: #ff7c2e;
+	font-size: 19px;
+	margin-left: 55px;
+	overflow-y: auto;
+	margin-top: -10px;
+}
+
 .pers {
 	font-family: monospace;
     color: white;

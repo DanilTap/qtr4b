@@ -30,8 +30,13 @@ function createMessage(username, message, nick_color){
 
 // Connect user
 socket.on("connected", (data) => {
-	$('#users_online').text(`🟢 Online: ${data.users}`)
-	$('#messages').scrollTop($('#messages p:last').offset().top)
+	var userlist = new Map(JSON.parse(data.users))
+	$('#users_online').text(`🟢 Online: ${userlist.size}`)
+	$('.userslist').empty();
+
+	for (var user of userlist){
+		$('.userslist').append(`<p>${user[1]}</p>`)
+	}
 })
 
 // Load messages
@@ -42,8 +47,15 @@ socket.on("load_messages", (data) => {
 
 // Disconnect
 socket.on("disconnected", (data) => {
-	$('#users_online').text(`🟢 Online: ${data.users}`)
-	createMessage("Server", `<i>${data.id}</i> Вышел из чата`)
+	var userlist = new Map(JSON.parse(data.users))
+	$('.userslist').empty();
+
+	for (var user of userlist){
+		$('.userslist').append(`<p>${user[1]}</p>`)
+	}
+
+	$('#users_online').text(`🟢 Online: ${userlist.size}`)
+	createMessage("Server", `<i>${data.n}</i> Вышел из чата`)
 	$('#messages').scrollTop($('#messages p:last').offset().top)
 })
 
@@ -59,6 +71,15 @@ socket.on("ping_back", (data) => {
 	var ndate = new Date().getTime()
 	var ping = ndate - chatParms.ping_date
 	socket.emit('new_message', {username: 'Server', message: `${data.author}, ${ping}ms`, nc: '#C7C7C7'})
+})
+
+socket.on("nick_back", (data) => {
+	var userlist = new Map(JSON.parse(data.users))
+	$('.userslist').empty();
+
+	for (var user of userlist){
+		$('.userslist').append(`<p>${user[1]}</p>`)
+	}
 })
 
 socket.on("clear_back", (data) =>{
@@ -158,4 +179,10 @@ $(document).bind('keyup', function(event){
 	} else {
 		return
 	}
+})
+
+$('#username').blur(function(){
+	var name = $('#username').val()
+	if (name == '' || name == ' '){name = 'Empty'}
+	socket.emit("nick_change", {id: socket.id, n: name})
 })
